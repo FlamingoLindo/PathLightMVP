@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "#543681",
   },
   logo: {
     width: 150,
@@ -14,5 +14,13 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
+  },
+  formContainer: {
+    backgroundColor: "white",
+    padding: 20,
+    borderRadius: 10,
+    width: "90%",
+    maxWidth: 400,
+    alignItems: "center",
   },
 });
