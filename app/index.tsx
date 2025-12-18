@@ -40,7 +40,7 @@ export default function Index() {
         keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
       >
         <ScrollView
-          contentContainerStyle={{ 
+          contentContainerStyle={{
             flexGrow: 1,
             justifyContent: isKeyboardVisible ? 'flex-start' : 'center',
             alignItems: 'center',
