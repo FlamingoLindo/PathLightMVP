@@ -10,4 +10,10 @@ export const customInputStyle = StyleSheet.create({
     top: "50%",
     transform: [{ translateY: -12 }],
   },
+  errorMessage: {
+    color: "red",
+    marginTop: 4,
+    fontSize: 12,
+    marginBottom: 4,
+  },
 });

@@ -1,0 +1,16 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [
+        "en"
+    ],
+    "words": [
+        "sublocality",
+        "cellularIMEI",
+        "Pressable"
+    ],
+    "ignoreWords": [],
+    "import": [],
+    "language": "en"
+}
