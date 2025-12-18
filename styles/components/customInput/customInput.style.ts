@@ -4,6 +4,9 @@ export const customInputStyle = StyleSheet.create({
   container: {
     position: "relative",
   },
+  inputWrapper: {
+    position: "relative",
+  },
   eyeIcon: {
     position: "absolute",
     right: 12,

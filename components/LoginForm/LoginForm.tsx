@@ -3,10 +3,8 @@ import { EmailInputStyle } from "@/styles/components/customInput/emailInput.styl
 import { LoginFormStyle } from "@/styles/components/loginForm.style";
 import {
   ActivityIndicator,
-  Keyboard,
   Pressable,
   Text,
-  TouchableWithoutFeedback,
   View
 } from "react-native";
 import CustomInput from "./CustomInput/CustomInput";
@@ -21,10 +19,10 @@ const LoginForm = () => {
     isSubmitting,
     clearError,
     handleSubmit,
+    pendingLogin,
   } = useLoginForm();
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={LoginFormStyle.container}>
         <CustomInput
           id="email"
@@ -39,9 +37,8 @@ const LoginForm = () => {
             if (errors.email) clearError("email");
           }}
           error={errors.email}
-          editable={!isSubmitting}
+          editable={!isSubmitting && !pendingLogin}
         />
-
         <CustomInput
           id="password"
           style={EmailInputStyle.input}
@@ -54,20 +51,20 @@ const LoginForm = () => {
             if (errors.password) clearError("password");
           }}
           error={errors.password}
-          editable={!isSubmitting}
+          editable={!isSubmitting && !pendingLogin}
         />
 
         <Pressable
           onPress={handleSubmit}
-          disabled={isSubmitting}
+          disabled={isSubmitting || pendingLogin}
           style={({ pressed }) => ({
-            backgroundColor: isSubmitting ? '#ccc' : pressed ? '#005' : '#007bff',
+            backgroundColor: (isSubmitting || pendingLogin) ? '#ccc' : pressed ? '#b836a2ff' : '#b86bab',
             padding: 12,
             borderRadius: 8,
             alignItems: 'center',
           })}
         >
-          {isSubmitting ? (
+          {(isSubmitting || pendingLogin) ? (
             <ActivityIndicator color="#fff" />
           ) : (
             <Text style={{ color: '#fff', fontSize: 16, fontWeight: '600' }}>
@@ -76,7 +73,6 @@ const LoginForm = () => {
           )}
         </Pressable>
       </View>
-    </TouchableWithoutFeedback>
   );
 };
 

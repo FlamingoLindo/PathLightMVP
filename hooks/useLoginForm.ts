@@ -1,7 +1,7 @@
 import { LoginDTO } from "@/schemas/dto/login.dto";
 import { LoginSchema } from "@/schemas/zod/login.schema";
-import { loginUser } from "@/services/auth.service";
-import { useState } from "react";
+import { authenticateWithBiometrics, checkBiometricAvailability } from "@/services/biometric.service";
+import { useEffect, useState } from "react";
 
 type LoginErrors = Partial<Record<keyof LoginDTO, string>>;
 
@@ -10,6 +10,8 @@ export const useLoginForm = () => {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState<LoginErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [biometricAvailable, setBiometricAvailable] = useState(false);
+    const [pendingLogin, setPendingLogin] = useState(false);
 
     const clearError = (field: keyof LoginDTO) => {
         setErrors((prev) => ({ ...prev, [field]: undefined }));
@@ -17,7 +19,6 @@ export const useLoginForm = () => {
 
     const validateForm = (): boolean => {
         const result = LoginSchema.safeParse({ email, password });
-
         if (result.success) {
             setErrors({});
             return true;
@@ -30,7 +31,6 @@ export const useLoginForm = () => {
                 newErrors[field] = issue.message;
             }
         });
-
         setErrors(newErrors);
         return false;
     };
@@ -40,9 +40,24 @@ export const useLoginForm = () => {
 
         setIsSubmitting(true);
         try {
-            const result = await loginUser({ email, password });
-            console.log("Login successful:", result);
-            return result;
+            // const result = await loginUser({ email, password });
+            console.log("Login successful");
+
+            if (biometricAvailable) {
+                setPendingLogin(true);
+                const authenticated = await authenticateWithBiometrics(
+                    "Verify your identity to complete login"
+                );
+
+                if (!authenticated) {
+                    setErrors({ email: "Biometric authentication failed" });
+                    setPendingLogin(false);
+                    return;
+                }
+                setPendingLogin(false);
+            }
+            
+            // return result;
         } catch (error) {
             console.error("Login failed:", error);
             setErrors({ email: "Invalid email or password" });
@@ -51,6 +66,12 @@ export const useLoginForm = () => {
             setIsSubmitting(false);
         }
     };
+
+    useEffect(() => {
+        checkBiometricAvailability().then(result => {
+            setBiometricAvailable(result.isAvailable);
+        });
+    }, []);
 
     return {
         email,
@@ -61,5 +82,7 @@ export const useLoginForm = () => {
         isSubmitting,
         clearError,
         handleSubmit,
+        biometricAvailable,
+        pendingLogin,
     };
 };
