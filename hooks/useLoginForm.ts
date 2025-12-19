@@ -1,11 +1,13 @@
 import { LoginDTO } from "@/schemas/dto/login.dto";
 import { LoginSchema } from "@/schemas/zod/login.schema";
 import { authenticateWithBiometrics, checkBiometricAvailability } from "@/services/biometric.service";
+import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 
 type LoginErrors = Partial<Record<keyof LoginDTO, string>>;
 
 export const useLoginForm = () => {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState<LoginErrors>({});
@@ -56,7 +58,6 @@ export const useLoginForm = () => {
                 }
                 setPendingLogin(false);
             }
-            
             // return result;
         } catch (error) {
             console.error("Login failed:", error);
@@ -64,6 +65,7 @@ export const useLoginForm = () => {
             throw error;
         } finally {
             setIsSubmitting(false);
+            router.push('/home');
         }
     };
 

@@ -7,7 +7,7 @@ import {
   Text,
   View
 } from "react-native";
-import CustomInput from "./CustomInput/CustomInput";
+import CustomInput from "../CustomInput/CustomInput";
 
 const LoginForm = () => {
   const {

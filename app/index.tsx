@@ -1,8 +1,10 @@
 import LoginForm from "@/components/LoginForm/LoginForm";
 import { styles } from "@/styles";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
+  Button,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -15,6 +17,7 @@ export default function Index() {
   const insets = useSafeAreaInsets();
   const logo = require("@/assets/images/logo.jpg");
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -55,6 +58,8 @@ export default function Index() {
             <Image source={logo} style={styles.logo} contentFit="contain" />
             <LoginForm />
           </View>
+          {/* TODO remove this */}
+          <Button title="SKIP" onPress={() => router.push('/home')} />
         </ScrollView>
       </KeyboardAvoidingView>
     </View>

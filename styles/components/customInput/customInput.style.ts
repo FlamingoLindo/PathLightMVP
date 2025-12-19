@@ -15,6 +15,7 @@ export const customInputStyle = StyleSheet.create({
   },
   errorMessage: {
     color: "red",
+    fontWeight: 'bold',
     marginTop: 4,
     fontSize: 12,
     marginBottom: 4,
