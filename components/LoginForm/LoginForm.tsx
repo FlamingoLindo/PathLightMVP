@@ -1,6 +1,6 @@
 import { useLoginForm } from "@/hooks/useLoginForm";
 import { EmailInputStyle } from "@/styles/components/customInput/emailInput.style";
-import { LoginFormStyle } from "@/styles/components/loginForm.style";
+import { LoginFormStyle } from "@/styles/components/loginForm/loginForm.style";
 import {
   ActivityIndicator,
   Pressable,

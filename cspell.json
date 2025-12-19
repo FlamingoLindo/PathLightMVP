@@ -8,7 +8,8 @@
     "words": [
         "sublocality",
         "cellularIMEI",
-        "Pressable"
+        "Pressable",
+        "ellipsizeMode"
     ],
     "ignoreWords": [],
     "import": [],

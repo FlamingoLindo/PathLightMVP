@@ -1,5 +1,5 @@
 import LoginForm from "@/components/LoginForm/LoginForm";
-import { styles } from "@/styles";
+import { styles } from "@/styles/index.index";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
