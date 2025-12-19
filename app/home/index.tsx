@@ -1,4 +1,4 @@
-import ProfileHeader from "@/components/ProfileHeader/ProfileHeader";
+import ProfileHeader from "@/components/home/ProfileHeader/ProfileHeader";
 import { View } from "react-native";
 
 

@@ -1,4 +1,4 @@
-import { ProfileHeaderStyle } from "@/styles/components/profileHeader/profileHeader.style";
+import { ProfileHeaderStyle } from "@/styles/components/home/profileHeader/profileHeader.style";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
