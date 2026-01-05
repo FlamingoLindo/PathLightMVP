@@ -6,6 +6,31 @@ A modern React Native mobile application built with Expo Router, featuring user 
 
 This is a Minimum Viable Product (MVP) mobile application for [Pathlight HOME](https://www.pathlighthome.org/), a nonprofit organization dedicated to changing the lives of homeless and low-income individuals by providing affordable housing and economic opportunities. Since 1992, Pathlight HOME has helped house over 8,000 people in the Orlando, Florida area.
 
+## Screenshots
+
+### Login Screen
+<img src="./assets/images/screenshots/login-screen.png" width="300" alt="Login Screen">
+
+The login screen features:
+- Email and password authentication
+- Biometric login option (fingerprint/face ID)
+- Form validation with user-friendly error messages
+
+### Home Screen
+<img src="./assets/images/screenshots/home-screen.png" width="300" alt="Home Screen">
+
+The home dashboard displays:
+- User profile header with balance information
+- Quick access options for housing, apartments, and blog
+- Contact information and support resources
+
+### Help Modal
+<img src="./assets/images/screenshots/help-modal.png" width="300" alt="Help Modal">
+
+The help modal provides:
+- Feature explanations and tips
+- Social media links to connect with Pathlight HOME
+
 ## Features
 
 - **User Authentication** - Secure login system with form validation using Zod
