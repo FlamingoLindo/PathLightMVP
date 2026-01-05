@@ -3,10 +3,13 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import HelpModal from "./HelpModal/HelpModal";
 
 const ProfileHeader = () => {
-    const [isDueVisible, setIsDueVisible] = useState(false);
     const insets = useSafeAreaInsets();
+
+    const [isDueVisible, setIsDueVisible] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     return (
         <View style={[ProfileHeaderStyle.container, { paddingTop: insets.top }]}>
@@ -18,6 +21,7 @@ const ProfileHeader = () => {
                         color="white"
                     />
                 </View>
+
                 <View style={ProfileHeaderStyle.rightIcons}>
                     <TouchableOpacity
                         onPress={() => setIsDueVisible(!isDueVisible)}
@@ -29,7 +33,10 @@ const ProfileHeader = () => {
                             color="white"
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity style={ProfileHeaderStyle.iconButton}>
+                    <TouchableOpacity
+                        onPress={() => setIsModalVisible(!isModalVisible)}
+                        style={ProfileHeaderStyle.iconButton}
+                    >
                         <Ionicons
                             name="help-circle-outline"
                             size={30}
@@ -46,6 +53,12 @@ const ProfileHeader = () => {
                     {isDueVisible ? "$1,234.56" : "*******"}
                 </Text>
             </View>
+
+            <HelpModal
+                isVisible={isModalVisible}
+                onClose={() => setIsModalVisible(false)}
+            />
+
         </View>
     );
 }

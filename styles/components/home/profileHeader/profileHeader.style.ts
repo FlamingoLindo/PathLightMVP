@@ -62,5 +62,5 @@ export const ProfileHeaderStyle = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         letterSpacing: 1,
-    }
+    },
 });
