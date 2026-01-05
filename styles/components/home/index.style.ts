@@ -5,7 +5,7 @@ export const MenuStyle = StyleSheet.create({
         flex: 1
     },
     optionsContainer: {
-        flex: 1,
+        flexGrow: 0,
         marginTop: 10,
         marginBottom: 10,
     },

@@ -9,7 +9,7 @@ const Option = ({ icon, title, action }: OptionProps) => {
             <TouchableOpacity activeOpacity={0.5} onPress={action}>
                 <View style={OptionStyle.container}>
                     <Ionicons
-                        name={icon.name}
+                        name={icon.name as any}
                         size={icon.size}
                         color={icon.color}
                     />

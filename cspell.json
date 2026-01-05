@@ -9,7 +9,8 @@
         "sublocality",
         "cellularIMEI",
         "Pressable",
-        "ellipsizeMode"
+        "ellipsizeMode",
+        "Informatives"
     ],
     "ignoreWords": [],
     "import": [],

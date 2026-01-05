@@ -1,9 +1,6 @@
-import { Ionicons } from '@expo/vector-icons';
-import { ComponentProps } from 'react';
-
 export interface OptionProps {
     icon: {
-        name: ComponentProps<typeof Ionicons>['name'];
+        name: string;
         size: number;
         color: string;
     }
