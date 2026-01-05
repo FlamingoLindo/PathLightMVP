@@ -8,6 +8,7 @@ export const InformativeStyle = StyleSheet.create({
         width: 'auto',
         height: 'auto',
         padding: 12,
+        borderRadius: 16,
     },
     touchable: {
         flexDirection: 'row',
