@@ -10,7 +10,8 @@
         "cellularIMEI",
         "Pressable",
         "ellipsizeMode",
-        "Informatives"
+        "Informatives",
+        "Pathlight"
     ],
     "ignoreWords": [],
     "import": [],
