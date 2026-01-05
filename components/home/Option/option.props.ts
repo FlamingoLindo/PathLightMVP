@@ -8,4 +8,5 @@ export interface OptionProps {
         color: string;
     }
     title: string;
+    action?: () => void;
 }
